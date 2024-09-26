@@ -1,0 +1,10 @@
+#include "simulationsetup.h"
+
+simulationSetup::simulationSetup()
+{
+
+}
+
+
+
+

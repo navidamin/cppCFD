@@ -1,0 +1,44 @@
+#ifndef SIMULATIONSETUP_H
+#define SIMULATIONSETUP_H
+
+
+class simulationSetup
+{
+private:
+    // Parameters as private member variables
+    double length;
+    double width;
+    int nx;
+    int ny;
+    double endTime;
+    double dt;
+    double sigma;
+    double c;
+    double nu;
+    
+public:
+    // Constructor
+    simulationSetup();
+    
+    void readParameters();
+    
+    // Method to get all parameters
+    void getParameters (double , double, int, int, double,
+                       double , double , double , double );
+    
+    // Print all parameters
+    void printParameters() const;
+    
+    // Getter methods to access parameters (optional)
+    double getLength() const { return length; }
+    double getWidth() const { return width; }
+    int getNx() const { return nx; }
+    int getNy() const { return ny; }
+    double getEndTime() const { return endTime; }
+    double getDt() const { return dt; }
+    double getSigma() const { return sigma; }
+    double getC() const { return c; }
+    double getNu() const { return nu; }
+};
+
+#endif // SIMULATIONSETUP_H
