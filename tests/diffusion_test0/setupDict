@@ -1,0 +1,9 @@
+length 2.0
+width 0.0
+nx 41
+ny 0
+endTime 0.5
+dt 0.001
+sigma 0.2
+c 0.0
+nu 0.3
