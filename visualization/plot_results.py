@@ -50,7 +50,7 @@ def plot_all_results():
     ax2.set_title('Intermediate States')
 
     plt.tight_layout()
-    plt.savefig(os.path.join(plots_dir, 'linear_convection_results.png'))
+    plt.savefig(os.path.join(plots_dir, 'cumulative_simulation_results.png'))
     plt.close()
 
     # Plot animation
@@ -61,7 +61,7 @@ def plot_all_results():
     for i, file in enumerate(csv_files):
         ax.clear()
         plot_csv(file, ax)
-        ax.set_ylim(0.5, 2.5)
+        #ax.set_ylim(0.5, 2.5)
         plt.savefig(os.path.join(plots_dir, f'frame_{i:03d}.png'))
     
     plt.close()
