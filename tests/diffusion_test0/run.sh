@@ -2,7 +2,7 @@
 
 # Define paths
 export CFDCPP_DIR="${HOME}/Documents/Developery/Cpp/cppCFD"
-export SOLVER_PATH="${CFDCPP_DIR}/linear_convection"
+export SOLVER_PATH="${CFDCPP_DIR}/diffusion_solver"
 export VISUALIZATION_PATH="${CFDCPP_DIR}/visualization"
 
 # Check if the defined paths exist
