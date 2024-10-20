@@ -1,0 +1,51 @@
+name: C++ CI Workflow with Tests and Visualization
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the code from the repository
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # 2. Install dependencies: g++, Python, and required Python libraries
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ python3 python3-pip
+          pip3 install matplotlib pandas
+
+      # 3. Build the project using the Makefile
+      - name: Build the project
+        run: make all
+
+      # 4. Run each solver with the corresponding test input
+      - name: Run linear convection solver test
+        run: ./linear_convection < ./tests/linConv_test0
+
+      - name: Run nonlinear convection solver test
+        run: ./nonlinear_convection < ./tests/nonLinConv_test0
+
+      - name: Run diffusion solver test
+        run: ./diffusion_solver < ./tests/diffusion_test0
+
+      - name: Run burgers solver test
+        run: ./burgers_solver < ./tests/burgers_test0
+
+      # 5. Run the Python visualization script after all tests pass
+      - name: Generate visualizations
+        env:
+          VISUALIZATION_PATH: ./visualization
+        run: python3 $VISUALIZATION_PATH/plot_results.py
+
+      # 6. Clean up build artifacts
+      - name: Clean build artifacts
+        run: make clean
+
